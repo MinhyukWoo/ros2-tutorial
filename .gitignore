@@ -1,3 +1,4 @@
+# =====Start: Jupyter
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -61,3 +62,22 @@ target/
 
 # Notebook Checkpoints
 .ipynb_checkpoints/
+# =====End: Jupyter
+# =====Start: ROS2
+*.pyc
+*.iml
+*.swp
+.project
+.pydevproject
+.DS_Store
+.idea
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# colcon/CMake output
+build
+install
+log
+# =====End: ROS2
