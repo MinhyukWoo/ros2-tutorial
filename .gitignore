@@ -61,3 +61,22 @@ target/
 
 # Notebook Checkpoints
 .ipynb_checkpoints/
+
+# >>>시작: ROS2 >>>
+*.pyc
+*.iml
+*.swp
+.project
+.pydevproject
+.DS_Store
+.idea
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# colcon/CMake output
+build
+install
+log
+# <<<끝: ROS2 <<<
