@@ -1,6 +1,9 @@
 import rclpy
 from rclpy.node import Node
 from my_first_package_msgs.srv import MultiSpawn
+from turtlesim.srv import Spawn
+import math
+import time
 
 
 class MultiSpawning(Node):
@@ -35,14 +38,33 @@ class MultiSpawning(Node):
         self.service = self.create_service(
             MultiSpawn, "multi_spawn", self.callback_service
         )
+        self.spawn_client = self.create_client(Spawn, "/spawn")
+        self.center_x = 5.54
+        self.center_y = 5.54
 
     def callback_service(
         self, request: MultiSpawn.Request, response: MultiSpawn.Response
     ) -> MultiSpawn.Response:
-        print("Request: ", request)
-        response.x = [1.0, 2.0, 3.0]
-        response.y = [10.0, 20.0, 30.0]
-        response.theta = [100.0, 200.0, 300.0]
+        radius = 3
+        response.theta = [
+            2 * math.pi * (index / request.num) for index in range(request.num)
+        ]
+
+        response.x = [
+            self.center_x + radius * math.cos(theta) for theta in response.theta
+        ]
+        response.y = [
+            self.center_y + radius * math.sin(theta) for theta in response.theta
+        ]
+
+        for x, y, theta in zip(response.x, response.y, response.theta):
+            spawn = Spawn.Request()
+            spawn.x = x
+            spawn.y = y
+            spawn.theta = theta
+            self.spawn_client.call_async(spawn)
+            time.sleep(0.05)
+
         return response
 
 
