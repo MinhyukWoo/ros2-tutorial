@@ -15,6 +15,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/MultiSpawn.srv"
+  "action/DistTurtle.action"
 )
 #<<<<끝: 인터페이스와 소스 코드 생성자와 연결<<<<
 
