@@ -80,3 +80,6 @@ build
 install
 log
 # <<<끝: ROS2 <<<
+# >>>시작: ROS2 >>>
+.vscode
+# <<<끝: ROS2 <<<
