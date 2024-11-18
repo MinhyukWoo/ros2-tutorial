@@ -1,4 +1,4 @@
-# =====Start: Jupyter
+# >>>Start: Jupyter>>>
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -62,8 +62,9 @@ target/
 
 # Notebook Checkpoints
 .ipynb_checkpoints/
-# =====End: Jupyter
-# =====Start: ROS2
+# <<<End: Jupyter<<<
+
+# >>>Start: ROS2 >>>
 *.pyc
 *.iml
 *.swp
@@ -80,4 +81,8 @@ target/
 build
 install
 log
-# =====End: ROS2
+# <<<End: ROS2 <<<
+
+# >>>Start: VSCode >>>
+.vscode
+# <<<End: VSCode <<<

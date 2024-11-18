@@ -11,11 +11,14 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-
+#>>>>시작: 인터페이스와 소스 코드 생성자와 연결>>>>
 find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/MultiSpawn.srv"
+  "action/DistTurtle.action"
   "msg/CmdAndPoseVel.msg"
 )
+#<<<<끝: 인터페이스와 소스 코드 생성자와 연결<<<<
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
